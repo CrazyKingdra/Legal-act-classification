@@ -58,6 +58,14 @@ The goal is to evaluate cross-lingual transfer without training the models on Bo
 - **RQ2:** How well does a model trained on Croatian legal acts transfer to Bosnian and Serbian?
 - **RQ3:** How large is the performance drop when transferring from Croatian to Bosnian and Serbian?
 
+## Research Question Mapping
+
+| Research Question | How We Will Answer It | Evaluation |
+|---|---|---|
+| RQ1: Croatian classification | Train and test the models using Croatian legal acts from MultiEURLEX. | Macro-F1, Micro-F1, and per-class F1 |
+| RQ2: Cross-lingual transfer | Evaluate models trained on Croatian legal acts on Bosnian and Serbian legal acts. | Macro-F1 and Micro-F1 for each language |
+| RQ3: Performance drop | Compare Croatian test results with Bosnian and Serbian evaluation results. | Difference in Macro-F1 scores |
+
 ## Methodology
 
 The planned classification pipeline consists of:
