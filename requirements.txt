@@ -1,9 +1,16 @@
-pandas
-numpy
-scikit-learn
-datasets==3.6.0
-transformers
-torch
-matplotlib
-seaborn
-jupyter
+# Core
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+tqdm>=4.65
+# Data collection
+requests>=2.31
+trafilatura>=1.6
+pdfplumber>=0.10
+# Transformers (fine-tuning). Run on a GPU (e.g. Colab).
+torch>=2.1
+transformers>=4.40
+accelerate>=0.27
+# MultiEURLEX uses a loading script, which datasets>=4 no longer supports
+datasets>=2.18,<4.0
+huggingface_hub>=0.20

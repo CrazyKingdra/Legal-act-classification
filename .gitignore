@@ -1,24 +1,8 @@
-
-# Python
+data/raw/cache/
+data/interim/
+data/processed/*.jsonl
+results/*/model/
+results/*/ckpt/
+results/*/tmp/
+results/*/model.joblib
 __pycache__/
-*.py[cod]
-*.pyo
-.venv/
-venv/
-.env
-
-# Dataset and generated files
-data/raw/
-data/processed/
-*.csv
-*.parquet
-
-# Jupyter
-.ipynb_checkpoints/
-
-# VS Code
-.vscode/
-
-# Operating system
-.DS_Store
-Thumbs.db
