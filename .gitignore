@@ -1,5 +1,6 @@
 data/raw/cache/
-data/interim/
+data/interim/*
+!data/interim/label_map.csv
 data/processed/*.jsonl
 results/*/model/
 results/*/ckpt/
