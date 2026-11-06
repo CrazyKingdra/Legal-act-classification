@@ -1,6 +1,4 @@
-"""Members 1 and 2: download legal acts from a list of URLs and extract their text.
-
-Each portal has its own search interface and page layout, so we do not hard-code
+"""Each portal has its own search interface and page layout, so we do not hard-code
 a crawler. Instead, collect act URLs with each portal's own search (by year,
 act type, or keyword) and list them in a CSV:
 
@@ -9,7 +7,6 @@ act type, or keyword) and list them in a CSV:
   https://.../some-act.pdf,bs,sg-bih,,
 
 Usage:
-  python -m src.collect data/raw/urls_hr.csv  --out data/interim/hr_national.jsonl
   python -m src.collect data/raw/urls_bs.csv  --out data/interim/bs.jsonl
   python -m src.collect data/raw/urls_sr.csv  --out data/interim/sr.jsonl
 
