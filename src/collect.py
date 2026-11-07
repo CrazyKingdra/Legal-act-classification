@@ -43,16 +43,56 @@ def fetch(url, delay):
     return r.content, ext
 
 
-def extract_text(content, ext):
+def extract_sluzbenilist(html: str) -> str:
+    """sluzbenilist.ba keeps article headings in <p class="text-center"> and the article
+    bodies as LOOSE text between those tags (followed by <br>). Generic extractors such
+    as trafilatura drop that loose text, so read the whole container instead."""
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(html, "lxml")
+    heads = soup.select("p.text-center")
+    if not heads:
+        return ""
+    # smallest ancestor of the first heading that also contains the last heading
+    container = heads[0].parent
+    while container is not None and heads[-1] not in container.descendants:
+        container = container.parent
+    if container is None:
+        return ""
+    for tag in container(["script", "style", "nav", "form", "button"]):
+        tag.decompose()
+    for br in container.find_all("br"):
+        br.replace_with("\n")
+    for tag in container.find_all(["p", "div", "tr", "li", "h1", "h2", "h3", "h4"]):
+        tag.append("\n")
+    for tag in container.find_all(["td", "th"]):
+        tag.append(" | ")
+    return container.get_text("")
+
+
+def extract_trafilatura(html: str) -> str:
+    import trafilatura
+    text = trafilatura.extract(html, include_comments=False, include_tables=True,
+                               favor_recall=True)
+    return text or ""
+
+
+def extract_text(content, ext, url=""):
     if ext == ".pdf":
         import pdfplumber
         with pdfplumber.open(io.BytesIO(content)) as pdf:
             return "\n".join((p.extract_text() or "") for p in pdf.pages)
-    import trafilatura
     html = content.decode("utf-8", errors="replace")
-    text = trafilatura.extract(html, include_comments=False, include_tables=True,
-                               favor_recall=True)
-    return text or ""
+    generic = extract_trafilatura(html)
+    if "sluzbenilist.ba" in url:
+        try:
+            special = extract_sluzbenilist(html)
+        except Exception:  # noqa: BLE001
+            special = ""
+        # keep the specialised result unless it clearly found less text
+        if len(special) >= len(generic):
+            return special
+    return generic
 
 
 def main():
@@ -70,7 +110,7 @@ def main():
         url = it["url"].strip()
         try:
             content, ext = fetch(url, a.delay)
-            text = extract_text(content, ext)
+            text = extract_text(content, ext, url)
         except Exception as e:  # noqa: BLE001
             failed.append((url, str(e)))
             continue
