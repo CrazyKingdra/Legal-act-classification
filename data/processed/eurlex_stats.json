@@ -1,0 +1,50 @@
+{
+  "train": {
+    "kept": 7944,
+    "dropped": 0,
+    "per_area": {
+      "industry_technology": 1025,
+      "politics_international": 1594,
+      "agriculture_food": 1169,
+      "environment_energy": 199,
+      "transport": 238,
+      "finance_tax": 275,
+      "education_culture_science": 600,
+      "economy_trade_business": 1982,
+      "law_justice": 109,
+      "social_labour": 753
+    }
+  },
+  "validation": {
+    "kept": 2500,
+    "dropped": 0,
+    "per_area": {
+      "economy_trade_business": 698,
+      "agriculture_food": 431,
+      "industry_technology": 286,
+      "politics_international": 522,
+      "finance_tax": 66,
+      "social_labour": 172,
+      "education_culture_science": 171,
+      "transport": 54,
+      "law_justice": 39,
+      "environment_energy": 61
+    }
+  },
+  "test": {
+    "kept": 5000,
+    "dropped": 0,
+    "per_area": {
+      "politics_international": 1087,
+      "economy_trade_business": 1261,
+      "agriculture_food": 1120,
+      "social_labour": 231,
+      "transport": 121,
+      "education_culture_science": 254,
+      "industry_technology": 408,
+      "finance_tax": 198,
+      "law_justice": 222,
+      "environment_energy": 98
+    }
+  }
+}

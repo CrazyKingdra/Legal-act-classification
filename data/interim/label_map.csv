@@ -1,0 +1,22 @@
+index,eurovoc_id,name,area
+0,100149,SOCIAL QUESTIONS,social_labour
+1,100160,INDUSTRY,industry_technology
+2,100148,FINANCE,finance_tax
+3,100147,TRADE,economy_trade_business
+4,100152,BUSINESS AND COMPETITION,economy_trade_business
+5,100143,INTERNATIONAL RELATIONS,politics_international
+6,100156,"AGRICULTURE, FORESTRY AND FISHERIES",agriculture_food
+7,100158,"PRODUCTION, TECHNOLOGY AND RESEARCH",industry_technology
+8,100154,TRANSPORT,transport
+9,100153,EMPLOYMENT AND WORKING CONDITIONS,social_labour
+10,100142,POLITICS,politics_international
+11,100145,LAW,law_justice
+12,100150,EDUCATION AND COMMUNICATIONS,education_culture_science
+13,100162,INTERNATIONAL ORGANISATIONS,politics_international
+14,100159,ENERGY,environment_energy
+15,100144,EUROPEAN UNION,politics_international
+16,100151,SCIENCE,education_culture_science
+17,100157,AGRI-FOODSTUFFS,agriculture_food
+18,100161,GEOGRAPHY,ignore
+19,100146,ECONOMICS,economy_trade_business
+20,100155,ENVIRONMENT,environment_energy
