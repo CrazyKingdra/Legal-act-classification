@@ -1,6 +1,6 @@
 | Date | Member | Tool | Where | How | Result |
 |---|---|---|---|---|---|
-  | 03.11.2026 | Nejra Zurapi | Claude | src/transliterate.py | Claude generated the Serbian Cyrillic-to-Latin transliteration module as part of the project code kit | Used as provided; not modified |
+| 03.11.2026 | Nejra Zurapi | Claude | src/transliterate.py | Claude generated the Serbian Cyrillic-to-Latin transliteration module as part of the project code kit | Used as provided; not modified |
 | 03.11.2026 | Nejra Zurapi | Claude | src/dialect.py | Claude generated the ekavian/ijekavian detector (word-stem counting) as part of the project code kit | Used as provided; not modified |
 | 06.11.2026 | Nejra Zurapi | Claude | src/clean.py | Claude generated the shared text-cleaning module (Unicode normalisation, removal of page numbers and gazette headers, title guessing, and script and dialect tagging) as part of the project code kit | Used as provided; not modified |
 | 06.11.2026 | Nejra Zurapi | Claude | src/collect.py | Claude generated the collection script that downloads legal acts from a URL list (HTML and PDF), caches them, extracts the text and writes JSONL, as part of the project code kit | Used as provided; not modified |
@@ -10,3 +10,4 @@
 | 07.11.2026 | Nejra Zurapi | Claude | src/dialect.py | Claude rewrote the ekavian/ijekavian detector with more marker words, whole-word matching for ambiguous forms, and a 2-hit minimum with a 2:1 ratio rule | Used as provided; Bosnian "unknown" fell from 106 to 9 of 191 and Serbian from 19 to 3 of 199 |
 | 07.11.2026 | Faris Sačić | Claude | src/weak_label.py | Claude drafted the keyword-based weak labeller (stem lists for 10 legal areas, title matches weighted 3×), used only for test-set stratification | Faris expanded the keyword lists with additional stems while keeping the 10 legal areas | Used and edited; Added 3–4 additional stems to each of the 10 legal areas’ keyword lists, keeping the areas unchanged |
 | 09.11.2026 | Nejra Zurapi | Claude | src/sample_test.py | Claude generated the stratified test-set sampling script as part of the project code kit | Used as provided; not modified. Ran it on our Bosnian, Serbian and Croatian data |
+| 13.11.2026 | Faris Sačić | Claude | src/annotation.py | Claude wrote the double-annotation workflow: generates two independently shuffled annotation sheets, checks labels against the 10 legal areas, computes Cohen’s kappa overall and per language, exports disagreements for adjudication, and merges agreed and adjudicated labels into the final test sets | Used as provided |
